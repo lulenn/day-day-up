@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        #wrap {
+            background: grey;
+            height: 100vh;
+            display: inline-flex;
+        }
+        .inner {
+            height: 100vh;
+            transition: width ease 1s;
+        }
+        .item1 {
+            width: 100vw;
+            background: pink;
+        }
+        .item2 {
+            background: aquamarine;
+        }
+        .item3 {
+            background: greenyellow;
+        }
+        .item4 {
+            background: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="inner item1"></div>
+    <div class="inner item2"></div>
+    <div class="inner item3"></div>
+    <div class="inner item4"></div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
