@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style type="text/css">
-        body {
+        body, ul {
             margin: 0;
+            padding: 0;
         }
         #wrap {
-            background: grey;
-            height: 100vh;
-            display: inline-flex;
+            width: 400px;
+            overflow: hidden;
         }
-        .inner {
-            height: 100vh;
-            transition: width ease 1s;
+        ul {
+            list-style: none;
+            width: 9999px;
+            transform: translateX(-400px);
+        }
+       li {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            float: left;
         }
         .item1 {
-            width: 100vw;
             background: pink;
         }
         .item2 {
@@ -29,14 +35,59 @@
         .item4 {
             background: cornflowerblue;
         }
+        .btn {
+            width: 30px;
+            height: 60px;
+            background: white;
+            position: absolute;
+            z-index: 1;
+            top: 120px;
+            opacity: 0.4;
+            cursor: pointer;
+        }
+        .left {
+
+        }
+        .right {
+            left: 370px;
+        }
+        .doc {
+            position: relative;
+            z-index: 1;
+            bottom: 30px;
+            display: flex;
+            width: 120px;
+            margin: auto;
+            justify-content: space-between;
+        }
+        .active {
+            opacity: 1 !important;
+        }
+        .doc > div {
+            width: 20px;
+            height: 5px;
+            background: white;
+            opacity: 0.4;
+        }
     </style>
 </head>
 <body>
 <div id="wrap">
-    <div class="inner item1"></div>
-    <div class="inner item2"></div>
-    <div class="inner item3"></div>
-    <div class="inner item4"></div>
+    <ul id="item">
+        <li class="item1"> </li>
+        <li class="item2"> </li>
+        <li class="item3"> </li>
+        <li class="item4"> </li>
+    </ul>
+
+    <div class="btn left"></div>
+    <div class="btn right"></div>
+    <div class="doc">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
 <script src="main.js"></script>
 </body>
