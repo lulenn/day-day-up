@@ -1,6 +1,9 @@
 const stop = document.getElementById("stop"),
     start = document.getElementById("start"),
+    restart = document.getElementById("restart"),
     reset = document.getElementById("reset");
+const content = document.getElementById('content');
+let htmlStore;
 
 let listen = function () {
     let lines = document.getElementsByClassName('line');
@@ -16,6 +19,11 @@ let listen = function () {
                 lines.item(index).classList.add('stop');
             }
         };
+        restart.onclick = function () {
+            if (htmlStore) {
+                content.innerHTML = htmlStore;
+            }
+        }
         reset.onclick = function () {
             draw();
         }
@@ -23,7 +31,6 @@ let listen = function () {
 };
 
 let draw = function () {
-    let content = document.getElementById('content');
     let dataCount = 5, dataSet = [],
         height = content.offsetHeight,
         width = content.offsetWidth,
@@ -33,7 +40,7 @@ let draw = function () {
     let html = '', template = '<div class="dot-line-wrapper" id="data{{index}}">\n' +
                     '<div class="dot" style="left: {{dotLeft}}px; top: {{dotTop}}px"></div>' +
             '            <svg height="{{h}}" width="{{w}}">\n' +
-            '                <line class="line active stop" x1="{{x1}}" y1="{{y1}}" x2="{{x2}}" y2="{{y2}}" style="stroke: blue; animation-delay: {{delay}}s;"/>\n' +
+            '                <line class="line active" x1="{{x1}}" y1="{{y1}}" x2="{{x2}}" y2="{{y2}}" style="stroke: blue; animation-delay: {{delay}}s;"/>\n' +
             '            </svg>\n' +
             '        </div>\n';
 
@@ -62,6 +69,7 @@ let draw = function () {
         }
     }
 
+    htmlStore = html;
     content.innerHTML = html;
     listen();
 };

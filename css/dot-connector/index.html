@@ -18,10 +18,10 @@
             overflow: hidden;
         }
         .btn-bar {
-            position: absolute;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-around;
+            width: 250px;
+            margin: auto;
         }
         .btn-bar > button {
             width: 50px;
@@ -73,6 +73,7 @@
     <div class="btn-bar">
         <button id="start">start</button>
         <button id="stop">stop</button>
+        <button id="restart">restart</button>
         <button id="reset">reset</button>
     </div>
 </div>
