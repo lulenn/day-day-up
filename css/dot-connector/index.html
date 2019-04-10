@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body, ul {
+            margin: 0;
+            padding: 0;
+            background: #efefef;
+        }
+        #wrap {
+            width: 400px;
+            height: 300px;
+            background: white;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-bar {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .btn-bar > button {
+            width: 50px;
+            height: 30px;
+            background: cornflowerblue;
+        }
+        #content {
+            margin: 12px;
+            border-left: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
+            height: calc(100% - 65px);
+            display: flex;
+        }
+        .dot-line-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+        .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+        }
+        .active {
+            stroke-dasharray: 1000px;
+            stroke-dashoffset: 1000px;
+            animation-name: dash;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            animation-duration: 10s;
+        }
+        .stop {
+            animation-play-state: paused;
+        }
+        @keyframes dash {
+            from {
+                stroke-dashoffset: 1000px;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="content"></div>
+    <div class="btn-bar">
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+        <button id="reset">reset</button>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
