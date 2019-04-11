@@ -1,0 +1,93 @@
+body, ul {
+    margin: 0;
+    padding: 0;
+    background: #efefef;
+    font-size: 14px;
+}
+#wrap {
+    position: relative;
+    margin: 24px;
+}
+
+input {
+    width: 200px;
+    height: 36px;
+    font-size: 16px;
+}
+
+.date-picker {
+    width: 280px;
+    height: 340px;
+    background: white;
+    position: relative;
+    box-shadow: 0 2px 8px lightgrey;
+    display: inline-block;
+    top: 42px;
+    left: -205px;
+}
+#dp-head {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+    padding: 0 12px;
+}
+#dp-head div.icon {
+    display: inline-block;
+    text-align: center;
+    height: 24px;
+    width: 24px;
+}
+
+#dp-foot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    align-items: center;
+    padding: 0 12px;
+}
+
+#dp-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+}
+
+.date-row {
+    display: flex;
+    justify-content: space-around;
+}
+.date-row > div {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.date-row > div.selected {
+    box-sizing: border-box;
+    border: 1px solid blue;
+}
+.date-row > div.today {
+    background: lightblue;
+}
+.date-row > div.other-month {
+    color: lightgray;
+}
+
+#dp-head div.icon:hover,
+#dp-foot:hover, .date-row > div:hover:not(.selected) {
+    border: none;
+    color: blue;
+    cursor: pointer;
+}

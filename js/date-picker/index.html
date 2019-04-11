@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <title>Date Picker</title>
+    <link rel="stylesheet" href="date-picker.css">
+</head>
+<body>
+<div id="wrap">
+    <input id="input-demo" type="text"/>
+</div>
+</body>
+<script src="main.js"></script>
+<script>
+    var picker = new DatePicker({
+        elm: document.getElementById('input-demo'),
+        date: null
+    });
+</script>
+</html>
