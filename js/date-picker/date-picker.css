@@ -65,7 +65,7 @@ input {
     right: 0;
 }
 
-.date-row {
+.date-row, .date-row-title {
     display: flex;
     justify-content: space-around;
 }

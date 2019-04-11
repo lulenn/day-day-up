@@ -136,7 +136,7 @@ class DateBody {
         node.id = 'dp-body';
 
         let row = document.createElement('div');
-        row.classList.add('date-row');
+        row.classList.add('date-row-title');
         let week = '' +
             '<div>一</div>' +
             '<div>二</div>' +
@@ -207,7 +207,6 @@ class DatePicker {
     input;
     node;
     date;
-    selectedDate;
     constructor(props) {
         if (props.elm) {
             this.input = props.elm;
@@ -215,7 +214,10 @@ class DatePicker {
                 e.stopPropagation();
                 let val = e.srcElement.value.split('/').filter(x => !!x);
                 let date = new Date();
-                if (val.length) {
+                if (val.length
+                    && val[0]
+                    && val[1] >= 1 && val[1] <= 12
+                    && val[2] >= 1 && val[1] <= 31) {
                     val[1]--;   //month is 0-11, but the value showed in input is 1-12
                     Date.prototype.setFullYear.apply(date, val);
                 }
@@ -235,7 +237,6 @@ class DatePicker {
 
     init(date) {
         this.date = date;
-        this.selectedDate = date;
         this.head = new DateHead(date);
         this.body = new DateBody(date);
         this.foot = new DateFoot();
@@ -260,9 +261,7 @@ class DatePicker {
         this.select(date);
     }
 
-    select(date) {
-        this.head.date = date;
-        this.selectedDate = date;
+    setSelectedClass(date) {
         let month = date.getMonth(),
             day = date.getDate();
         let selected = document.getElementsByClassName('selected');
@@ -270,6 +269,10 @@ class DatePicker {
             selected.item(i).classList.remove('selected');
         }
         document.getElementById(month + '-' + day).classList.add('selected');
+    }
+
+    select(date) {
+        this.setSelectedClass(date);
         this.input.value = date.toLocaleDateString();
     }
 
