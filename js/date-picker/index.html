@@ -7,14 +7,37 @@
 </head>
 <body>
 <div id="wrap">
-    <input id="input-demo" type="text"/>
+    <div>
+        input 1
+        <input class="input-demo" type="text"/>
+    </div>
+    <div>
+        input 2
+        <input class="input-demo" type="text"/>
+    </div>
+    <div>
+        input 3
+        <input class="input-demo" type="text"/>
+    </div>
+    <div>
+        input 4
+        <input class="input-demo" type="text"/>
+    </div>
 </div>
 </body>
 <script src="main.js"></script>
 <script>
-    var picker = new DatePicker({
-        elm: document.getElementById('input-demo'),
-        date: null
-    });
+    // var p1 = new DatePicker({
+    //     elm: document.getElementById('input-demo'),
+    //     date: null
+    // });
+    let inputArr = document.getElementsByClassName('input-demo');
+    let inputDatePickerArr = [];
+    for (let i = 0; i < inputArr.length; i ++) {
+        inputDatePickerArr.push(new DatePicker({
+            elm: inputArr.item(i),
+            date: null
+        }))
+    }
 </script>
 </html>

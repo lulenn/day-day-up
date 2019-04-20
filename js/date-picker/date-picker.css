@@ -7,23 +7,25 @@ body, ul {
 #wrap {
     position: relative;
     margin: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 input {
     width: 200px;
     height: 36px;
     font-size: 16px;
+    display: block;
 }
 
 .date-picker {
     width: 280px;
     height: 340px;
     background: white;
-    position: relative;
+    position: absolute;
     box-shadow: 0 2px 8px lightgrey;
     display: inline-block;
-    top: 42px;
-    left: -205px;
 }
 #dp-head {
     display: flex;

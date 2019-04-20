@@ -1,8 +1,10 @@
 class DateHead {
     date;
     node;
-    constructor(props) {
+    picker;
+    constructor(props, picker) {
         this.date = props;
+        this.picker = picker;
         this.render();
     }
 
@@ -71,7 +73,7 @@ class DateHead {
             default:
                 break;
         }
-        picker.update(new Date(newDate));
+        this.picker.update(new Date(newDate));
     }
 
     updateHead(date) {
@@ -83,10 +85,12 @@ class DateHead {
 class DateCell {
     node;
     date;
+    picker;
     cellDate;
     constructor(props) {
         if (props && props.date instanceof Date) {
             this.date = props.date;
+            this.picker = props.picker;
             this.cellDate = props.cellDate;
             this.render();
         }
@@ -113,10 +117,10 @@ class DateCell {
 
     selectCell(date) {
         if (this.node.classList.contains('other-month')) {
-            picker.update(date);
+            this.picker.update(date);
         } else {
-            picker.select(date);
-            picker.destroy();
+            this.picker.select(date);
+            this.picker.destroy();
         }
     }
 
@@ -125,7 +129,9 @@ class DateCell {
 class DateBody {
     date;
     node;
-    constructor(props) {
+    picker;
+    constructor(props, picker) {
+        this.picker = picker;
         this.date = props;
         this.render();
     }
@@ -169,7 +175,7 @@ class DateBody {
         do {
             let row = [];
             for (let i = 0; i < 7; i++) {
-                row.push( new DateCell({date: this.date, cellDate: new Date(date)}) );
+                row.push( new DateCell({date: this.date, cellDate: new Date(date), picker: this.picker}) );
                 date += oneDay;
             }
             dayList.push(row);
@@ -188,7 +194,9 @@ class DateBody {
 
 class DateFoot {
     node;
-    constructor() {
+    picker;
+    constructor(picker) {
+        this.picker = picker;
         this.render();
     }
     render() {
@@ -196,8 +204,8 @@ class DateFoot {
         node.id = 'dp-foot';
         node.innerText = '今天';
         node.onclick = () => {
-            picker.update(new Date());
-            picker.destroy();
+            this.picker.update(new Date());
+            this.picker.destroy();
         };
         this.node = node;
     }
@@ -237,9 +245,9 @@ class DatePicker {
 
     init(date) {
         this.date = date;
-        this.head = new DateHead(date);
-        this.body = new DateBody(date);
-        this.foot = new DateFoot();
+        this.head = new DateHead(date, this);
+        this.body = new DateBody(date, this);
+        this.foot = new DateFoot(this);
         this.render();
     }
 
