@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jsonp-wrapper.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    JSONP('http://runningls.com/demos/2016/jsonp/jsonp.php', {
+        data:{
+            id:1
+        },
+        callback: (data) => { alert('get data: ' + data) },
+    });
+</script>
+</body>
+</html>

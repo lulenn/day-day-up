@@ -1,5 +1,6 @@
 /***
- * ref: https://github.com/ygm125/promise/blob/master/promise.js
+ * ref: https://www.tuicool.com/articles/RzQRV3
+ *      https://github.com/ygm125/promise/blob/master/promise.js
  * 1、promise有三种状态， 等待（pending）、已完成（fulfilled）、已拒绝（rejected）
  * 2、promise的状态只能从“等待”转到“完成”或者“拒绝”，不能逆向转换，同时“完成”和“拒绝”也不能相互转换
  * 3、promise必须有一个then方法，而且要返回一个promise，供then的链式调用，也就是可thenable的
