@@ -5,32 +5,32 @@
     <title>MyPromise</title>
     <script src="my-promise.js"></script>
     <script src="my-promise-fn.js"></script>
-    <script>
-        let promise1 = new MyPromise(function(resolve, reject) {
-            console.log('promise1 执行器执行');
-            resolve(2);
-        });
-        promise1.then((e) => console.log('[结果]：promise1 then1: ', e));
+    <!--<script>-->
+        <!--let promise1 = new MyPromise(function(resolve, reject) {-->
+            <!--console.log('promise1 执行器执行');-->
+            <!--resolve(2);-->
+        <!--});-->
+        <!--promise1.then((e) => console.log('[结果]：promise1 then1: ', e));-->
 
-        let promise2 = new MyPromise(function(resolve, reject) {
-            console.log('promise2 执行器执行');
-            setTimeout(function(){
-                reject(2);
-            }, 2000);
-        });
-        promise2.then((e) => console.log('[结果]：promise2 then1: ', e))
-            .then((e) => console.log('[结果]：promise2 then2: ', e));
+        <!--let promise2 = new MyPromise(function(resolve, reject) {-->
+            <!--console.log('promise2 执行器执行');-->
+            <!--setTimeout(function(){-->
+                <!--reject(2);-->
+            <!--}, 2000);-->
+        <!--});-->
+        <!--promise2.then((e) => console.log('[结果]：promise2 then1: ', e))-->
+            <!--.then((e) => console.log('[结果]：promise2 then2: ', e));-->
 
-        let promise3 = MyPromise.resolve(3);
-        promise3.then(() => MyPromise.resolve(3.1))
-            .then(() => MyPromise.resolve(3.2))
-            .then(() => MyPromise.reject(3.2))
-            .catch((error) => console.log(error));
+        <!--let promise3 = MyPromise.resolve(3);-->
+        <!--promise3.then(() => MyPromise.resolve(3.1))-->
+            <!--.then(() => MyPromise.resolve(3.2))-->
+            <!--.then(() => MyPromise.reject(3.2))-->
+            <!--.catch((error) => console.log(error));-->
 
-        MyPromise.all([MyPromise.resolve(4.1), MyPromise.resolve(4.2)])
-            .then(res => console.log(res), rej => console.log(rej));
+        <!--MyPromise.all([MyPromise.resolve(4.1), MyPromise.resolve(4.2)])-->
+            <!--.then(res => console.log(res), rej => console.log(rej));-->
 
-    </script>
+    <!--</script>-->
 </head>
 <body>
 </body>

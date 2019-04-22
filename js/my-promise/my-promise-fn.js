@@ -57,3 +57,17 @@ const fnArr = [fn1, fn2, fn3];
         console.log(res);
     })
 })(fnArr);
+
+// use generator
+(function actuatorIterator(promiseArr) {
+    function* actuatorGenerator(arr) {
+        for (let i = 0, len = arr.length; i < len; i++) {
+            yield arr[i]();
+        }
+    }
+    let iterator = actuatorGenerator(promiseArr);
+    let val = iterator.next();
+    while (!val.done) {
+        val = iterator.next(val.value)
+    }
+})(fnArr);
